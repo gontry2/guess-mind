@@ -1,0 +1,39 @@
+@keyframes notification {
+    0% {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-90px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-70px);
+        opacity: 1;
+    }
+}
+
+@keyframes disapear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.notification {
+    opacity: 0;
+    bottom: -100px;
+    position: absolute;
+    bottom: 0px;
+    left: 50px;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25);
+    background-color: white;
+    padding: 20px 50px;
+    text-align: center;
+    border-radius: 50px;
+    animation: notification 0.5s ease-out forwards, disapear 0.5s ease-in forwards;
+    animation-delay: 0.5s, 2s;
+    color: white;
+}
