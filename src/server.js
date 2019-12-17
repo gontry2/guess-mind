@@ -18,4 +18,4 @@ const server = app.listen(PORT, handleListening);
 
 const io = socketIO.listen(server); // ws 와 http는 동일한 port에 올릴 수 있음.
 
-io.on("connection", socket => socketController(socket));
+io.on("connection", socket => socketController(socket, io));

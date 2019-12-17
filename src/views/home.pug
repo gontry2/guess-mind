@@ -11,7 +11,24 @@ html(lang="en")
       form#jsLogin
         input(placeholder="What's your nickname", type="text")
     .gameContainer#jsGame
+      .main
+        #jsNotifs
+        #jsClock 30
+        canvas.canvas#jsCanvas
+        .controls#jsControls
+          button#jsMode Fill
+          .colors
+            .color.jsColor(style="background-color: #2c2c2c")
+            .color.jsColor(style="background-color: white")
+            .color.jsColor(style="background-color: #ff3b30")
+            .color.jsColor(style="background-color: #ff9500")
+            .color.jsColor(style="background-color: #ffcc00")
+            .color.jsColor(style="background-color: #4cd963")
+            .color.jsColor(style="background-color: #5ac8fa")
+            .color.jsColor(style="background-color: #0579ff")
+            .color.jsColor(style="background-color: #5856d6")
       .chat
+        .player__board#jsPBoard
         ul.chat__messages#jsMessages
         form.chat__form#jsSendMsg
           input(placeholder="Write a message", type="text")
