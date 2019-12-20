@@ -26,6 +26,7 @@ const socketController = (socket, io) => {
                 setTimeout(() => {
                     superBroadcast(events.gameStarted);
                     io.to(leader.id).emit(events.leaderNotif, { word });
+                    clearInterval(interval);
                     interval = setInterval(
                         () => superBroadcast(events.showClock, { second: (second -= 1) }),
                         1000
@@ -37,11 +38,11 @@ const socketController = (socket, io) => {
     };
     const endGame = () => {
         inProgress = false;
+        superBroadcast(events.hideClock);
         superBroadcast(events.gameEnded);
-        if (timeout !== null) {
+        if (timeout !== null || interval !== null) {
             clearTimeout(timeout);
             clearInterval(interval);
-            second = 30;
         }
         setTimeout(() => startGame(), 2000);
     };
@@ -55,7 +56,6 @@ const socketController = (socket, io) => {
         });
         sendPlayerUpdate();
         endGame();
-        clearTimeout(timeout);
     };
     socket.on(events.setNickname, ({ nickname }) => {
         socket.nickname = nickname;

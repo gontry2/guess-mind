@@ -16,7 +16,8 @@ const events = {
     leaderNotif: "leaderNotif",
     gameEnded: "gameEnded",
     gameStarting: "gameStarting",
-    showClock: "showClock"
+    showClock: "showClock",
+    hideClock: "hideClock"
 };
 
 export default events;

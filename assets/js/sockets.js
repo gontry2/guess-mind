@@ -8,7 +8,7 @@ import {
     handleGameEnded,
     handleGameStarting
 } from "./players";
-import { handleShowClock } from "./clock";
+import { handleShowClock, handleHideClock } from "./clock";
 
 let socket = null;
 
@@ -29,4 +29,5 @@ export const initSockets = aSocket => {
     socket.on(events.gameEnded, handleGameEnded);
     socket.on(events.gameStarting, handleGameStarting);
     socket.on(events.showClock, handleShowClock);
+    socket.on(events.hideClock, handleHideClock);
 };
